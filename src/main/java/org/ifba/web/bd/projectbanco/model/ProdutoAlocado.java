@@ -26,7 +26,7 @@ public class ProdutoAlocado {
     private Produto produto;
     
     @OneToOne 
-    private Filial filial;
+    private Filial filial; 
 
     private int quantidade; 
 }
