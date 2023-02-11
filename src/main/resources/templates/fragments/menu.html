@@ -19,11 +19,12 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-      </div>
-        <div class="info">
-          <a href="#" sec:authentication="principal.getName()" class="d-block">Alexander Pierce</a>
+            <img th:src="@{${#authentication.principal.picture}}" referrerpolicy="no-referrer" class="img-circle elevation-2" alt="User Image">
         </div>
-      </div>
+        <div class="info">
+            <a href="#" sec:authentication="principal.name" class="d-block">Alexander Pierce</a>
+        </div>
+    </div>
 
       <!-- SidebarSearch Form -->
       <div class="form-inline">

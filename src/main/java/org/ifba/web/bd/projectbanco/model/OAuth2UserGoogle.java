@@ -25,7 +25,8 @@ public class OAuth2UserGoogle  implements OAuth2User{
 
     @Override
     public String getName() {
-        return auth2User.getName();
+     
+        return auth2User.getAttribute("name");
     }
     
     public String getEmail() {
