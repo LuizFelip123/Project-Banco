@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org " xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="pt-BR">
-
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +25,7 @@
   <!-- BS Stepper -->
   <link rel="stylesheet" href="/plugins/bs-stepper/css/bs-stepper.min.css">
   <!-- dropzonejs -->
-  <link rel="stylesheet" href="/plugins/dropzone/min/dropzone.min.css">
+  <link rel="stylesheet" href="./plugins/dropzone/min/dropzone.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/css/adminlte.min.css">
 </head>
@@ -48,87 +46,85 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cadastrar Produto</h1>
+            <h1>Editar Filial</h1>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-            </ol>
-          </div>
+        
         </div>
       </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- SELECT2 EXAMPLE -->
-        <div class="card card-default">
-          <div class="card-header">
-            <h3 class="card-title">Painel  de Cadastro</h3>
-
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fas fa-minus"></i>
-              </button>
-
+    <form th:action="@{/Filial/Editada/{id}(id=${filialOld.id})}" th:object="${filial}" method="post">
+      <section class="content">
+        <div class="container-fluid">
+          <!-- SELECT2 EXAMPLE -->
+          <div class="card card-default">
+            <div class="card-header">
+              <h3 class="card-title">Painel  de Edição</h3>
+  
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+  
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="cidade">cidade</label>
+                    <input type="text" th:field="*{cidade}" th:value="${filialOld.cidade}" class="form-control"  id="cidade" placeholder="Cddade">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">email</label>
+                    <input type="email" th:field="*{email}" class="form-control"  th:value="${filialOld.email}" id="email" placeholder="exemplo@gmail.com">
+                  </div>
+                 
+                 
+                
+                </div>
+                <!-- /.col -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="bairro">bairro</label>
+                    <input type="text" th:field="*{bairro}" th:value="${filialOld.bairro}" class="form-control" id="bairro" placeholder="Bairro">
+                   
+  
+                  </div>
+                  <div class="form-group"> 
+                    <label for="rua">Rua</label>
+                    <input type="text"  th:field="*{rua}"  th:value="${filialOld.rua}"  class="form-control" id="rua" placeholder="Rua">
+                  </div>
+                  
+  
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+  
+  
+  
+             
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <button type="submit" class="btn btn-info  float-right">Realizar Cadastro</button>
             </div>
           </div>
-          <!-- /.card-header -->
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="cpf">CPF</label>
-                  <input type="text" class="form-control" id="cpf" placeholder="cpf">
-                </div>
-                <div class="form-group">
-                  <label for="nome">Nome</label>
-                  <input type="text" class="form-control" id="nome" placeholder="Nome">
-                </div>
-                <div class="form-group">
-                  <label for="rua">rua</label>
-                  <input type="text" class="form-control" id="rua" placeholder="rua">
-                </div>
-            
-              </div>
-              <!-- /.col -->
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="Email">
-                </div>
-              
-                <div class="form-group">
-                  <label for="cidade">Cidade</label>
-                  <input type="text" class="form-control" id="cidade" placeholder="Cidade">
-                </div>
-              </div>
-              
-            </div>
-      
-
-
-
-           
-          </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-            <button type="submit" class="btn btn-info  float-right">Realizar Cadastro</button>
-          </div>
+          <!-- /.card -->
+  
+          <!-- SELECT2 EXAMPLE -->
+  
         </div>
-        <!-- /.card -->
-
-        <!-- SELECT2 EXAMPLE -->
-
-      </div>
-      <!-- /.container-fluid -->
-    </section>
+        <!-- /.container-fluid -->
+      </section>
+    </form>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
-
+ 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

@@ -66,9 +66,10 @@
                   </div>
                 </div>
               </div>
-              <!-- /.card-header -->
+              <h4 th:if="${#lists.isEmpty(filias)}">Não há outros usuários cadastrados no sistema</h4>
+
               <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+                <table th:if="${not #lists.isEmpty(filias)}" class="table table-hover text-nowrap">
                   <thead>
                     <tr>
                       <th>ID</th>
@@ -79,39 +80,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>183</td>
-                      <td>São Felipe</td>
-                      <td>50</td>
-                      <td><a href=""><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
+                    <tr th:each="filial : ${filias}">
+                      <td th:text="${filial.id}" >183</td>
+                      <td th:text="${filial.cidade}" >São Felipe</td>
+                      <td th:text="${#lists.size(filial.produtosAlocados)}" >50</td>
+                      <td><a th:href="@{/Filial/Editar/{id}(id=${filial.id})}"><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
                         <a href=""><button type="button" class="btn  bg-gradient-red ">Excluir</button></a></td>
                       <td><a href="#">Saber mais </a></td>    
                     </tr>
 
-                    <tr>
-                      <td>219</td>
-                      <td>São Felipe</td>
-                      <td>50</td>
-                      <td><a href=""><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
-                        <a href=""><button type="button" class="btn  bg-gradient-red ">Excluir</button></a></td>
-                        <td><a href="#">Saber mais </a></td>    
-                      </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>São Felipe</td>
-                      <td>50</td>
-                      <td><a href=""><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
-                        <a href=""><button type="button" class="btn  bg-gradient-red ">Excluir</button></a></td>
-                        <td><a href="#">Saber mais </a></td>    
-                      </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>São Felipe</td>
-                      <td>50</td>
-                      <td><a href=""><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
-                        <a href=""><button type="button" class="btn  bg-gradient-red ">Excluir</button></a></td>
-                        <td><a href="#">Saber mais </a></td>    
-                      </tr>
+                  
+                 
                   </tbody>
                 </table>
               </div>

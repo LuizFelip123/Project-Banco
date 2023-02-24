@@ -15,30 +15,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 
+
+
 @Controller
 @RequestMapping("/Filial/")
 @PreAuthorize("isAuthenticated()")
 public class FilialController {
 
     @Autowired
-    FilialService filialService;
+    private FilialService filialService;
 
 
     @GetMapping ("Adicionar")
-    public String showAddForm(  Model model) {
+    public String showAddForm(Filial filial,  Model model) {
         return "filial/adicionar";
     }  
 
     @GetMapping("Listar")
     public String listarFilial(Model model){
-
+        model.addAttribute("filias", filialService.getAll());
         return "filial/lista";
     }
-    @PostMapping("Adicionar")
+    @PostMapping("Salvar")
     public String addFilial(@Validated Filial filial, BindingResult result) {
         if(result.hasErrors()){
             return "redirect:/Filial/Adicionar";
         }
+        filialService.saveFilial(filial);
 
         return "redirect:/Filial/Listar";
     }
@@ -47,5 +50,21 @@ public class FilialController {
 
         return "redirect:/Filial/Listar";
     }
+
+    @GetMapping("Editar/{id}")
+    public String editarFilial(@PathVariable("id") long id, Model model, Filial filial){
+    System.out.println(filialService.findFilial(id).get().getCidade());
+       model.addAttribute("filialOld", filialService.findFilial(id).get()); 
+        return "filial/editar";
+    }
+
+    @PostMapping("Editada/{id}")
+     public String saveEditar(@PathVariable("id") long id, @Validated Filial filial){
+        
+        filialService.editarFilial(id, filial);
+        return"redirect:/Filial/Listar";
+     }           
+    
+    
     
 }

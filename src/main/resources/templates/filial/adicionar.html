@@ -54,71 +54,73 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- SELECT2 EXAMPLE -->
-        <div class="card card-default">
-          <div class="card-header">
-            <h3 class="card-title">Painel  de Cadastro</h3>
-
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fas fa-minus"></i>
-              </button>
-
-            </div>
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">cidade</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Cddade">
-                </div>
-                <div class="form-group">
-                  <label for="email">email</label>
-                  <input type="email" class="form-control" id="email" placeholder="exemplo@gmail.com">
-                </div>
-               
-               
-              
+    <form th:action="@{/Filial/Salvar}" th:object="${filial}" method="post">
+      <section class="content">
+        <div class="container-fluid">
+          <!-- SELECT2 EXAMPLE -->
+          <div class="card card-default">
+            <div class="card-header">
+              <h3 class="card-title">Painel  de Cadastro</h3>
+  
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+  
               </div>
-              <!-- /.col -->
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="bairro">bairro</label>
-                  <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">cidade</label>
+                    <input type="text" th:field="*{cidade}" class="form-control" id="exampleInputEmail1" placeholder="Cddade">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">email</label>
+                    <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="exemplo@gmail.com">
+                  </div>
                  
-
-                </div>
-                <div class="form-group"> 
-                  <label for="rua">rua</label>
-                  <input type="text" class="form-control" id="rua" placeholder="Rua">
-                </div>
+                 
                 
-
+                </div>
+                <!-- /.col -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="bairro">bairro</label>
+                    <input type="text" th:field="*{bairro}" class="form-control" id="bairro" placeholder="Bairro">
+                   
+  
+                  </div>
+                  <div class="form-group"> 
+                    <label for="rua">Rua</label>
+                    <input type="text"  th:field="*{rua}"class="form-control" id="rua" placeholder="Rua">
+                  </div>
+                  
+  
+                </div>
+                <!-- /.col -->
               </div>
-              <!-- /.col -->
+              <!-- /.row -->
+  
+  
+  
+             
             </div>
-            <!-- /.row -->
-
-
-
-           
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <button type="submit" class="btn btn-info  float-right">Realizar Cadastro</button>
+            </div>
           </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-            <button type="submit" class="btn btn-info  float-right">Realizar Cadastro</button>
-          </div>
+          <!-- /.card -->
+  
+          <!-- SELECT2 EXAMPLE -->
+  
         </div>
-        <!-- /.card -->
-
-        <!-- SELECT2 EXAMPLE -->
-
-      </div>
-      <!-- /.container-fluid -->
-    </section>
+        <!-- /.container-fluid -->
+      </section>
+    </form>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
