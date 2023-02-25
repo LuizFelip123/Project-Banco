@@ -48,7 +48,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cadastrar Cliente</h1>
+            <h1>Edotar Cliente</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -60,7 +60,7 @@
     </section>
 
     <!-- Main content -->
-  <form th:action="@{/Cliente/Salvar}" th:object="${cliente}"  method="post">
+  <form th:action="@{/Cliente/Editada/{id}(id=${clienteOld.id})}" th:object="${cliente}"  method="post">
     <section class="content">
       <div class="container-fluid">
         <!-- SELECT2 EXAMPLE -->

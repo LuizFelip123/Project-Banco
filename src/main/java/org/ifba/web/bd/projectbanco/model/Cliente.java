@@ -25,4 +25,5 @@ public class Cliente {
     private String email;
     @Column(unique=true)
     private String cpf;
+    private String rua;
 }
