@@ -47,13 +47,12 @@ public class FilialController {
     }
     @GetMapping("Deletar/{id}")
     public String deleteFilial(@PathVariable("id") long id ){
-
+        filialService.deleteFilial(id);
         return "redirect:/Filial/Listar";
     }
 
     @GetMapping("Editar/{id}")
     public String editarFilial(@PathVariable("id") long id, Model model, Filial filial){
-    System.out.println(filialService.findFilial(id).get().getCidade());
        model.addAttribute("filialOld", filialService.findFilial(id).get()); 
         return "filial/editar";
     }

@@ -42,9 +42,30 @@ public class FilialService {
     }
 
     public void editarFilial(Long id, Filial filial){
+        Filial   filialOld = filialRepository.findById(id).get();    
         filial.setId(id);
+        System.out.println();
+        
+         if(filial.getBairro().isEmpty()){
+
+            filial.setBairro(filialOld.getBairro());
+         }
+         if(filial.getCidade().isEmpty()){
+            filial.setCidade(filialOld.getCidade());
+         }
+         if(filial.getEmail().isEmpty()){
+            filial.setEmail(filialOld.getEmail());
+         }
+         if(filial.getRua().isEmpty()){
+            filial.setRua(filialOld.getRua());
+         }
+         if(filial.getProdutosAlocados() == null){
+            filial.setProdutosAlocados(filialOld.getProdutosAlocados());
+         }
         filialRepository.save(filial);
     }
+
+
     
     
 

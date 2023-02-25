@@ -28,4 +28,5 @@ public class Filial {
     private String bairro;
     @OneToMany
     private List<ProdutoAlocado> produtosAlocados;
+
 }

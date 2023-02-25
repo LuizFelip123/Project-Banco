@@ -48,9 +48,11 @@
       <div class="container-fluid">
 
         <!-- /.row -->
-        <div class="row">
+        <div  class="row">
           <div class="col-12">
-            <div class="card">
+            
+
+            <div   class="card">
               <div class="card-header">
                 <h3 class="card-title">Filias</h3>
 
@@ -66,10 +68,10 @@
                   </div>
                 </div>
               </div>
-              <h4 th:if="${#lists.isEmpty(filias)}">Não há outros usuários cadastrados no sistema</h4>
-
-              <div class="card-body table-responsive p-0">
-                <table th:if="${not #lists.isEmpty(filias)}" class="table table-hover text-nowrap">
+         
+              <h4 th:if="${#lists.isEmpty(filias)}">Não há filias cadastradas no sistema</h4>
+              <div th:if="${not #lists.isEmpty(filias)}" class="card-body table-responsive p-0">
+                <table  class="table table-hover text-nowrap">
                   <thead>
                     <tr>
                       <th>ID</th>
@@ -85,7 +87,7 @@
                       <td th:text="${filial.cidade}" >São Felipe</td>
                       <td th:text="${#lists.size(filial.produtosAlocados)}" >50</td>
                       <td><a th:href="@{/Filial/Editar/{id}(id=${filial.id})}"><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
-                        <a href=""><button type="button" class="btn  bg-gradient-red ">Excluir</button></a></td>
+                        <a th:href="@{/Filial/Deletar/{id}(id=${filial.id})}"><button type="button" class="btn  bg-gradient-red ">Excluir</button></a></td>
                       <td><a href="#">Saber mais </a></td>    
                     </tr>
 
