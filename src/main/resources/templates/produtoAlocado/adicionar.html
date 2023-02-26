@@ -57,7 +57,7 @@
     <section class="content">
       <div class="container-fluid">
         <!-- SELECT2 EXAMPLE -->
-      <form th:action="@{/Produto/Salvar}"  th:object="${produto}" method="post">
+      <form action="" th:object="${produto}" method="post">
         <div class="card card-default">
           <div class="card-header">
             <h3 class="card-title">Painel  de Cadastro</h3>
@@ -73,17 +73,10 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
+               
                 <div class="form-group">
-                  <label for="Nome">marca</label>
-                  <input type="text"th:field="*{nome}" class="form-control" id="nome" placeholder="Nome">
-                </div>
-                <div class="form-group">
-                  <label for="marca">marca</label>
-                  <input type="text"th:field="*{marca}" class="form-control" id="marca" placeholder="Marca do produto">
-                </div>
-                <div class="form-group">
-                  <label for="valor">Valor</label>
-                  <input type="number" th:field="*{valor}" step=0.01  class="form-control" id="valor" placeholder="Preço produto">
+                  <label for="preco">Preço</label>
+                  <input type="number" th:field="*{preco}" class="form-control" id="preco" placeholder="Preço produto">
                 </div>
                
                
@@ -92,7 +85,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="decricao">Descrição</label>
-                  <input type="text"th:field="*{descricao}" class="form-control" id="descricao" placeholder="Descrição do produto">
+                  <input type="text" th:field="*{decricao}" class="form-control" id="descricao" placeholder="Descrição do produto">
                 </div>
                 <div class="form-group">
                   <label for="quantidade">Quantidade</label>
@@ -102,7 +95,19 @@
               </div>
               <!-- /.col -->
               
-         
+            <div class="col-md-6">
+              <h4>Unidade de Alocação</h4>
+              <div class="form-group">
+                <label></label>
+                <select class="form-control select2" style="width: 100%;">
+                  <option selected="selected">Nenhuma</option>
+                  <option>São Felipe</option>
+                  <option>João Pessoa</option>
+                  <option>Santo Antonio de Jesus</option>
+                </select>
+              </div>
+              
+            </div> 
           
             
             </div>

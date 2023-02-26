@@ -19,7 +19,10 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    private String marca;
+    private String nome;
     private String descricao;
     private Double valor;
     private int quantidade; 
+
 }

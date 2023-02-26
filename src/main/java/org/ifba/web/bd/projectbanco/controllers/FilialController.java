@@ -48,20 +48,20 @@ public class FilialController {
     @GetMapping("Deletar/{id}")
     public String deleteFilial(@PathVariable("id") long id ){
         filialService.deleteFilial(id);
-        return "redirect:/Filial/Listar";
+        return "redirect:/Produto/Listar";
     }
 
     @GetMapping("Editar/{id}")
     public String editarFilial(@PathVariable("id") long id, Model model, Filial filial){
        model.addAttribute("filialOld", filialService.findFilial(id).get()); 
-        return "filial/editar";
+        return "produto/editar";
     }
 
     @PostMapping("Editada/{id}")
-     public String saveEditar(@PathVariable("id") long id, @Validated Filial filial){
+     public String saveEditar(@PathVariable("id") long id, @Validated Filial filial,  BindingResult result){
         
         filialService.editarFilial(id, filial);
-        return"redirect:/Filial/Listar";
+        return"redirect:/Produto/Listar";
      }           
     
     

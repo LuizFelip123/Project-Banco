@@ -68,17 +68,15 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
-                <h4 th:if="${#lists.isEmpty(produtos)}">Não há produtos cadastradas no sistema</h4>
-
                 <table th:if="${not #lists.isEmpty(produtos)}" class="table table-hover text-nowrap">
                   <thead>
                     <tr>
                       <th>ID</th>
                       <th>Nome</th>
-                      <th>Marca</th>
-                      <th>Descrição</th>
+                      <th>Tipo</th>
+                      <th>Status</th>
                       <th>Preço</th>
-                       <th>Quantidade Total</th> 
+                      <th>Alocação</th>
                       <th>Ações</th>
                     </tr>
                   </thead>
@@ -88,12 +86,12 @@
                     <tr th:each="produto : ${produtos}">
                       <td th:text="${produto.id}">219</td>
                       <td th:text="${produto.nome}">Alexander Pierce</td>
-                      <td th:text="${produto.marca}">11-7-2014</td>
-                      <td  th:text="${produto.descricao}"><span class="tag tag-warning">Pending</span></td>
-                      <td >R$ <span th:text="${produto.valor}">1250</span></td>
-                      <td th:text="${produto.quantidade}">123</td>
-                      <td><a th:href="@{/Produto/Editar/{id}(id=${produto.id})}"><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
-                        <a th:href="@{/Produto/Deletar/{id}(id=${produto.id})}"> <button type="button" class="btn  bg-gradient-red " >Excluir</button></a>  <a><button type="button" class="btn  bg-gradient-info ">Movimentar Produto</button></a>
+                      <td th:>11-7-2014</td>
+                      <td><span class="tag tag-warning">Pending</span></td>
+                      <td>R$ 12,49</td>
+                      <td>São Felipe</td>
+                      <td><a href=""><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
+                        <a href=""><button type="button" class="btn  bg-gradient-info ">Movimentar Produto</button></a>
                       </td>
                     </tr>
                  
