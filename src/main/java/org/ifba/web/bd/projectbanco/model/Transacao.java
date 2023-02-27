@@ -1,5 +1,6 @@
 package org.ifba.web.bd.projectbanco.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,20 +13,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Filial {
+public abstract class Transacao {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id; 
+    private long id;  
 
-    private String cidade;
-    private String rua;
-    private String email;
-    private String bairro;
+    private Date dataTransacao;
+    private int quantidade;
+    @OneToMany
+    private List<ProdutoAlocado> produtosAlocados;
 
 
 }

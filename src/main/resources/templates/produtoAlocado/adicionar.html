@@ -57,7 +57,7 @@
     <section class="content">
       <div class="container-fluid">
         <!-- SELECT2 EXAMPLE -->
-      <form action="" th:object="${produto}" method="post">
+      <form th:action="@{/ProdutoAlocado/Salvar}" th:object="${produtoAlocado}" method="post">
         <div class="card card-default">
           <div class="card-header">
             <h3 class="card-title">Painel  de Cadastro</h3>
@@ -74,36 +74,31 @@
             <div class="row">
               <div class="col-md-6">
                
-                <div class="form-group">
-                  <label for="preco">Preço</label>
-                  <input type="number" th:field="*{preco}" class="form-control" id="preco" placeholder="Preço produto">
-                </div>
-               
+                <div class="col-md-6">
+                  <h4>Unidade de Alocação</h4>
+                  <div class="form-group">
+                    <label>Filial</label>
+                    <select th:field="*{filial}"  class="form-control select2" style="width: 100%;">
+                      <option th:each="option : ${filias}" th:value="${option.id}" th:text="${option.cidade}"></option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="quantidade">Quantidade</label>
+                    <input type="number" th:field="*{quantidade}" class="form-control" id="quantidade" placeholder="Quantiade do produto">
+                  </div>
+                </div> 
                
               </div>
               <!-- /.col -->
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="decricao">Descrição</label>
-                  <input type="text" th:field="*{decricao}" class="form-control" id="descricao" placeholder="Descrição do produto">
-                </div>
-                <div class="form-group">
-                  <label for="quantidade">Quantidade</label>
-                  <input type="number" th:field="*{quantidade}" class="form-control" id="quantidade" placeholder="Quantiade do produto">
-                </div>
-
-              </div>
               <!-- /.col -->
               
             <div class="col-md-6">
-              <h4>Unidade de Alocação</h4>
+              <h4>Produto</h4>
               <div class="form-group">
-                <label></label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Nenhuma</option>
-                  <option>São Felipe</option>
-                  <option>João Pessoa</option>
-                  <option>Santo Antonio de Jesus</option>
+                <label>produto</label>
+                <select  th:field="*{produto}" class="form-control select2" style="width: 100%;">
+                  <option th:each="option : ${produtos}" th:value="${option.id}" th:text="${option.nome}" >Nenhuma</option>
                 </select>
               </div>
               

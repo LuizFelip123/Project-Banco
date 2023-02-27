@@ -21,7 +21,7 @@ public class HomeController {
         usuarioService.verficarUsuario();
 
         if(usuarioService.isAdministrador()){
-            usuarioService.addAdminRole(authentication);
+            usuarioService.addAdminRole(authentication); 
         }
 
 

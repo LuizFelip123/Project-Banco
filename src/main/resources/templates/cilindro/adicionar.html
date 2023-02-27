@@ -46,7 +46,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cadastrar Produto</h1>
+            <h1>Cadastrar Cilindro</h1>
           </div>
          
         </div>
@@ -57,7 +57,7 @@
     <section class="content">
       <div class="container-fluid">
         <!-- SELECT2 EXAMPLE -->
-      <form th:action="@{/Produto/Salvar}"  th:object="${produto}" method="post">
+      <form th:action="@{/Cilindro/Salvar}"  th:object="${cilindro}" method="post">
         <div class="card card-default">
           <div class="card-header">
             <h3 class="card-title">Painel  de Cadastro</h3>
@@ -98,6 +98,14 @@
                   <label for="quantidade">Quantidade</label>
                   <input type="number" th:field="*{quantidade}" class="form-control" id="quantidade" placeholder="Quantiade do produto">
                 </div>
+                <div class="form-group">
+                  <label>Estado</label>
+                  <select  th:field="*{estado}" class="form-control select2" style="width: 100%;">
+                    <option th:value="cheio" th:text="cheio"  th:selected="selected">Cheio</option>
+                    <option th:value="vazio" th:text="vazio">Vazio</option>
+                  </select>
+                </div>
+                
 
               </div>
               <!-- /.col -->

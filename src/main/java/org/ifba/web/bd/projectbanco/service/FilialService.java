@@ -16,8 +16,7 @@ public class FilialService {
     private FilialRepository filialRepository; 
     
     public void saveFilial(Filial filial){
-        if(filialRepository.existsById(filial.getId()))
-            filial.setProdutosAlocados(new ArrayList<ProdutoAlocado>());    
+        
         
             filialRepository.save(filial);
 
@@ -59,9 +58,7 @@ public class FilialService {
          if(filial.getRua().isEmpty()){
             filial.setRua(filialOld.getRua());
          }
-         if(filial.getProdutosAlocados() == null){
-            filial.setProdutosAlocados(filialOld.getProdutosAlocados());
-         }
+      
         filialRepository.save(filial);
     }
 

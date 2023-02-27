@@ -32,7 +32,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Filias</h1>
+            <h1>Estoque de Produtos</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -48,13 +48,11 @@
       <div class="container-fluid">
 
         <!-- /.row -->
-        <div  class="row">
+        <div class="row">
           <div class="col-12">
-            
-
-            <div   class="card">
+            <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Filias</h3>
+                <h3 class="card-title">Produtos</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -68,29 +66,39 @@
                   </div>
                 </div>
               </div>
-         
-              <h4 th:if="${#lists.isEmpty(filias)}">Não há filias cadastradas no sistema</h4>
-              <div th:if="${not #lists.isEmpty(filias)}" class="card-body table-responsive p-0">
-                <table  class="table table-hover text-nowrap">
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <h4 th:if="${#lists.isEmpty(cilindros)}">Não há produtos cadastradas no sistema</h4>
+
+                <table th:if="${not #lists.isEmpty(cilindros)}" class="table table-hover text-nowrap">
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Cidade</th>
+                      <th>Nome</th>
+                      <th>Marca</th>
+                      <th>Descrição</th>
+                      <th>Preço</th>
+                       <th>Quantidade Total</th> 
+                       <th>Status</th>
                       <th>Ações</th>
-                       <th>Estoque</th> 
                     </tr>
                   </thead>
                   <tbody>
-                    <tr th:each="filial : ${filias}">
-                      <td th:text="${filial.id}" >183</td>
-                      <td th:text="${filial.cidade}" >São Felipe</td>
-
-                      <td><a th:href="@{/Filial/Editar/{id}(id=${filial.id})}"><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
-                        <a th:href="@{/Filial/Deletar/{id}(id=${filial.id})}"><button type="button" class="btn  bg-gradient-red ">Excluir</button></a></td>
-                      <td><a href="#">Saber mais </a></td>    
-                    </tr>
-
                   
+                     
+                    <tr th:each="cilindro : ${cilindros}">
+                      <td th:text="${cilindro.id}">219</td>
+                      <td th:text="${cilindro.nome}">Alexander Pierce</td>
+                      <td th:text="${cilindro.marca}">11-7-2014</td>
+                      <td  th:text="${cilindro.descricao}"><span class="tag tag-warning">Pending</span></td>
+                      <td >R$ <span th:text="${cilindro.valor}">1250</span></td>
+                      <td th:text="${cilindro.quantidade}">123</td>
+                      <td th:text="${cilindro.estado}"></td>
+                      <td><a th:href="@{/Cilindro/Editar/{id}(id=${cilindro.id})}"><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
+                        <a th:href="@{/Cilindro/Deletar/{id}(id=${cilindro.id})}"> <button type="button" class="btn  bg-gradient-red " >Excluir</button></a>  <a><button type="button" class="btn  bg-gradient-info ">Movimentar Produto</button></a>
+                      </td>
+                    </tr>
+                 
                  
                   </tbody>
                 </table>
@@ -107,7 +115,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
- 
+
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

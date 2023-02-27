@@ -68,28 +68,24 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
-                <table th:if="${not #lists.isEmpty(produtos)}" class="table table-hover text-nowrap">
+                <table th:if="${not #lists.isEmpty(produtosAlocados)}" class="table table-hover text-nowrap">
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Nome</th>
-                      <th>Tipo</th>
-                      <th>Status</th>
-                      <th>Preço</th>
                       <th>Alocação</th>
+                      <th>Produto</th>
+                      
                       <th>Ações</th>
                     </tr>
                   </thead>
                   <tbody>
                   
                      
-                    <tr th:each="produto : ${produtos}">
-                      <td th:text="${produto.id}">219</td>
-                      <td th:text="${produto.nome}">Alexander Pierce</td>
-                      <td th:>11-7-2014</td>
-                      <td><span class="tag tag-warning">Pending</span></td>
-                      <td>R$ 12,49</td>
-                      <td>São Felipe</td>
+                    <tr th:each="produtoAlocado : ${produtosAlocados}">
+                      <td th:text="${produtoAlocado.id}">219</td>
+                      <td th:text="${produtoAlocado.filial.cidade}">Alexander Pierce</td>
+                      <td th:text="${produtoAlocado.produto.nome}">11-7-2014</td>
+                    
                       <td><a href=""><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
                         <a href=""><button type="button" class="btn  bg-gradient-info ">Movimentar Produto</button></a>
                       </td>
