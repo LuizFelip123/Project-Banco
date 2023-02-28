@@ -26,4 +26,5 @@ public class Cliente {
     @Column(unique=true)
     private String cpf;
     private String rua;
+    private boolean ativo;
 }
