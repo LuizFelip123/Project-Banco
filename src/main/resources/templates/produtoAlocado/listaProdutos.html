@@ -32,7 +32,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Estoque de Produtos</h1>
+            <h1>Estoque de Produtos : <p th:text="${filial.cidade}" >Názere</p></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -72,9 +72,9 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Alocação</th>
-                      <th>Produto</th>
-                      
+                      <th>Marca</th>
+                      <th>Nome</th>
+                      <th>quantidade</th>
                       <th>Ações</th>
                     </tr>
                   </thead>
@@ -82,13 +82,12 @@
                   
                      
                     <tr th:each="produtoAlocado : ${produtosAlocados}">
-                      <td th:text="${produtoAlocado.id}">219</td>
-                      <td th:text="${produtoAlocado.filial.cidade}">Alexander Pierce</td>
+                        <td th:text="${produtoAlocado.produto.id}">id</td>
+                      <td th:text="${produtoAlocado.produto.marca}">219</td>
                       <td th:text="${produtoAlocado.produto.nome}">11-7-2014</td>
-                       
-                      <td><a href=""><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
-                        <a href=""><button type="button" class="btn  bg-gradient-info ">Movimentar Produto</button></a>
-                      </td>
+                      <td th:text="${produtoAlocado.quantidade}">Alexander Pierce</td>                      
+                      <td><a href="#"><button type="button" class="btn  bg-gradient-primary ">Movimentar</button></a> 
+                        <a href="#"><button type="button" class="btn  bg-gradient-info ">Vender</button></a> </td>
                     </tr>
                  
                  

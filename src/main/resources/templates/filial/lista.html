@@ -84,11 +84,11 @@
                     <tr th:each="filial : ${filias}">
                       <td th:text="${filial.id}" >183</td>
                       <td th:text="${filial.cidade}" >São Felipe</td>
-
                       <td><a th:href="@{/Filial/Editar/{id}(id=${filial.id})}"><button type="button" class="btn  bg-gradient-primary ">Editar</button></a>
                         <a th:href="@{/Filial/Deletar/{id}(id=${filial.id})}"><button type="button" class="btn  bg-gradient-red ">Excluir</button></a></td>
-                      <td><a href="#">Saber mais </a></td>    
-                    </tr>
+                        <td><a th:href="@{/ProdutoAlocado/ListarProdutos/{id}(id=${filial.id})}"><button type="button" class="btn  bg-gradient-green ">Verificar Estoque</button></a>
+
+                      </tr>
 
                   
                  

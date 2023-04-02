@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,6 +26,7 @@ public class ProdutoAlocadoController {
     private FilialService filialService;
     @Autowired
     private ProdutoService produtoService;
+
     @GetMapping("Adicionar")
     public String addShowForm(ProdutoAlocado produtoAlocado, Model model) {
         model.addAttribute("filias", filialService.getAll());
@@ -41,6 +43,12 @@ public class ProdutoAlocadoController {
     public String listProdutoAlocado(Model model){
         model.addAttribute("produtosAlocados",produtoAlocadoService.getAll());
         return "produtoAlocado/lista";
+    }
+    @GetMapping("ListarProdutos/{id}")
+    public String listProdutos(@PathVariable("id") long id, Model model){
+        model.addAttribute("filial", filialService.findFilial(id).get() );
+        model.addAttribute("produtosAlocados", produtoAlocadoService.getAllProdutos(id));
+        return  "produtoAlocado/listaProdutos";
     }
 
 }

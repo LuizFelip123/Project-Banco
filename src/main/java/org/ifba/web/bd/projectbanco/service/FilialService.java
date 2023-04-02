@@ -1,11 +1,9 @@
 package org.ifba.web.bd.projectbanco.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.ifba.web.bd.projectbanco.model.Filial;
-import org.ifba.web.bd.projectbanco.model.ProdutoAlocado;
 import org.ifba.web.bd.projectbanco.repository.FilialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
